@@ -32,3 +32,4 @@ function hash_ver2(key, arrayLen) {
   }
   return total;
 }
+
