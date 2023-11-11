@@ -15,3 +15,4 @@ Data Structures
 - Doubly Linked Lists
 - Stacks
 - Queues
+- Hash Table ( Hash Map )
