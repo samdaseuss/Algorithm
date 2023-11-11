@@ -18,10 +18,12 @@ function hash_ver1(key, arrayLen) {
 
 /**
  * 성능이 개선된 해쉬 함수
+ * 
  * @param {string} key 키 값
  * @param {number} arrayLen 해쉬 길이 
  * @returns {number} 해쉬된 값
  */
+
 function hash_ver2(key, arrayLen) {
   let total = 0;
   let PRIME = 31;
