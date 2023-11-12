@@ -14,16 +14,15 @@ class HashTable {
         return total;
     }
 
-    set(key, value) {
-        let index = this._hash(key);
+    set(key, value) { // 1. 키와 값을 입력 받음
+        let index = this._hash(key); // 2. 키를 해쉬 처리함
         if(!this.keyMap[index]) {
             this.keyMap[index] = [];
         }
-        this.keyMap[index].push([key, value]); 
+        this.keyMap[index].push([key, value]);  // 3. separate chaining를 통해 키-값 쌍을 해쉬 테이블 배열에 저장
     }
 
     get(key) {
-
     }
 }
 
