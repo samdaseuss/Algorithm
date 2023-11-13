@@ -1,5 +1,5 @@
 class HashTable {
-    constructor(size=4) {
+    constructor(size=50) {
         this.keymap = new Array(size);
     }
 
@@ -24,10 +24,17 @@ class HashTable {
 
     get(key) { // 1. 키를 입력 받음
         // 2. 키를 해쉬 처리함
+        let index = this._hash(key);
         // 3. 키-값 쌍을 찾은 다음에 출력
+        if (this.keyMap[index]) {
+            return this.keyMap[index];
+        }
         // 4.찾을 수 없다면 언디파인드 출력 
+        return undefined;
     }
 }
 
-let hash = new HashTable();
-hash.set("Hello", "world");
+let hash = new HashTable(17);
+hash.set("maroon", "#800000");
+hash.set("yellow", "#FFFF00");
+hash.set("olive", "#808000");
