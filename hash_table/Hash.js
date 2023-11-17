@@ -37,17 +37,19 @@ class HashTable {
       return undefined; // 4.찾을 수 없다면 언디파인드 출력 
     }
 
-    values() {
+    values(){
         let valuesArr = [];
-        for(let i = 0; j < this.keyMap[i]. length; i++) {
-            if(this.keyMap[i]) {
-                for(let j = 0; this.keyMap[i].length; j++) {
-                    valuesArr.push(this.keyMap[i][j][1])
-                }
+        for(let i = 0; i < this.keyMap.length; i++){
+          if(this.keyMap[i]){
+            for(let j = 0; j < this.keyMap[i].length; j++){
+              if(!valuesArr.includes(this.keyMap[i][j][1])){
+                valuesArr.push(this.keyMap[i][j][1])
+              }
             }
-            return valuesArr;
+          }
         }
-    }
+        return valuesArr;
+      }
 
     keys() {
 
