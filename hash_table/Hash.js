@@ -82,3 +82,7 @@ console.log(ht.get("salmon"));
 console.log(ht.get("lightcoral"));
 console.log(ht.get("mediumvioletred"));
 console.log(ht.get("plum"));
+
+ht.keys().forEach(function(key){
+    console.log(ht.get(key));
+});
