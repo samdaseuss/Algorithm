@@ -51,7 +51,7 @@ class HashTable {
         return valuesArr;
       }
 
-      keys(){
+    keys(){
         let keysArr = [];
         for(let i = 0; i < this.keyMap.length; i++){
           if(this.keyMap[i]){
@@ -63,7 +63,7 @@ class HashTable {
           }
         }
         return keysArr;
-      }
+    }
 }
   
 let ht = new HashTable(17);
