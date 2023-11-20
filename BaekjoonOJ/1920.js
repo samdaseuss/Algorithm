@@ -15,22 +15,16 @@
  */
 
 
+/* readline Module */
+import { createInterface } from "readline";
 
+const rl = createInterface({
+    input: process.stdin,
+    output: process.stdout,
+    
+});
 
-/** 입력 파일 설정 */
-import { readFileSync } from 'fs';
-
-const filePath 
-        = process.platform 
-            === "linux" 
-                ? "/dev/stdin" 
-                : "./BaekjoonOJ/input/1920.txt";
-const strArray 
-        = readFileSync(filePath)
-            .toString()
-            .split('\n');
-let len = strArray.length;
-
+let input = [];
 
 /** 구현 */
 let A = ['1','5','6','3','2'];
@@ -72,7 +66,7 @@ function getString(str) {
             }
 
         }
-        
+
         return temp2.join(' ');
     }
 
@@ -87,8 +81,21 @@ function getString(str) {
     return '0';
 }
 
+rl.on( "line", function (line) {
 
-/** 출력 */
-for (let i = 0; i < len; i ++) {
-    console.log(getString(strArray[i]));
-}
+   input.push(line); // 입력받은 여러줄, line
+   // rl.close()이 없기에 계속 입력, 로컬에서 입력을 중지할려면 입력을 한 후 'ctrl + D'을 통해 입력 종료
+   
+}).on("close", function () {
+    const len = input.length;
+    for (
+        let i = 0;
+        i < len;
+        i++ 
+    ){
+        console.log(getString(input[i]));
+    }
+
+    process.exit(); // 프로세스 종료
+
+});
