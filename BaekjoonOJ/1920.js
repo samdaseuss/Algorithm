@@ -9,10 +9,6 @@
  * 다음 줄에는 M개의 수들이 주어지는데, 이 수들이 A안에 존재하는지 알아내면 된다. 
  * 모든 정수의 범위는 -231 보다 크거나 같고 231보다 작다.
  * 
- * 5
- * 4 1 5 2 3
- * 5
- * 1 3 7 9 5
  * 
  * 출력
  * M개의 줄에 답을 출력한다. 존재하면 1을, 존재하지 않으면 0을 출력한다.
@@ -24,7 +20,13 @@
  * 1
  */
 
-let str = '1 3 7 9 5';
+/** 파일 입출력 설정 */
+import { readFileSync } from 'fs';
+
+const filePath = process.platform === "linux" ? "/dev/stdin" : "./BaekjoonOJ/1920.txt";
+const str = readFileSync(filePath).toString().split('/n')[0];
+
+/** 구현 */
 let A = ['1','5','6','3','2']; // A 라는 배열 존재하고 이 안에 X라는 정수 존재
 
 function getString(str) {
@@ -33,8 +35,8 @@ function getString(str) {
         const array = str.split(' ');
         let temp = [];
 
-        for (i = 0; i < array.length; i++){
-            for (j=0; j < A.length; j++) {
+        for (let i = 0; i < array.length; i++){
+            for (let j=0; j < A.length; j++) {
                 if( array[i] === A[j]) {
                     temp.push(i);
                 }
@@ -44,7 +46,7 @@ function getString(str) {
         let temp2 = [];
         let count = 0;
 
-        for (i = 0; i < array.length; i++) {
+        for (let i = 0; i < array.length; i++) {
 
             if (i === temp[count]) {
                 temp2.push('1');
@@ -56,7 +58,7 @@ function getString(str) {
         
         return temp2;
     }
-    for (i = 0; i < A.length ;i++){
+    for (let i = 0; i < A.length ;i++){
         if( A[i] === str) {
             return 1;
         }
