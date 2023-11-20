@@ -23,7 +23,7 @@
 /** 파일 입출력 설정 */
 import { readFileSync } from 'fs';
 
-const filePath = process.platform === "linux" ? "/dev/stdin" : "./BaekjoonOJ/1920.txt";
+const filePath = process.platform === "linux" ? "/dev/stdin" : "./BaekjoonOJ/input/1920.txt";
 const str = readFileSync(filePath).toString().split('/n')[0];
 
 /** 구현 */
