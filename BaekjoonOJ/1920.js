@@ -14,50 +14,81 @@
  * M개의 줄에 답을 출력한다. 존재하면 1을, 존재하지 않으면 0을 출력한다.
  */
 
-/** 파일 입출력 설정 */
+
+
+
+/** 입력 파일 설정 */
 import { readFileSync } from 'fs';
 
-const filePath = process.platform === "linux" ? "/dev/stdin" : "./BaekjoonOJ/input/1920.txt";
-const str = readFileSync(filePath).toString().split('/n')[0];
+const filePath 
+        = process.platform 
+            === "linux" 
+                ? "/dev/stdin" 
+                : "./BaekjoonOJ/input/1920.txt";
+const strArray 
+        = readFileSync(filePath)
+            .toString()
+            .split('\n');
+let len = strArray.length;
+
 
 /** 구현 */
-let A = ['1','5','6','3','2']; // A 라는 배열 존재하고 이 안에 X라는 정수 존재
+let A = ['1','5','6','3','2'];
 
 function getString(str) {
+
     if(str.length > 1) {
 
         const array = str.split(' ');
         let temp = [];
 
-        for (let i = 0; i < array.length; i++){
-            for (let j=0; j < A.length; j++) {
-                if( array[i] === A[j]) {
-                    temp.push(i);
-                }
+        for (
+            let i = 0; 
+            i < array.length; 
+            i++
+        ){
+            for (
+                let j=0;
+                j < A.length; 
+                j++
+            ){
+                if( array[i] === A[j]) temp.push(i);
             }
         }
 
         let temp2 = [];
         let count = 0;
 
-        for (let i = 0; i < array.length; i++) {
-
+        for (
+            let i = 0;
+            i < array.length;
+            i++
+        ){
             if (i === temp[count]) {
                 temp2.push('1');
                 count++;
             } else {
                 temp2.push('0');
             }
+
         }
         
-        return temp2;
+        return temp2.join(' ');
     }
-    for (let i = 0; i < A.length ;i++){
-        if( A[i] === str) {
-            return 1;
-        }
+
+    for (
+        let i = 0;
+        i < A.length;
+        i++
+    ){
+        if( A[i] === str) return '1';
     }
-    return 0;
+
+    return '0';
 }
 
-console.log(getString(str));
+
+/** 출력 */
+for (let i = 0; i < len; i ++) {
+    console.log(getString(strArray[i]));
+}
