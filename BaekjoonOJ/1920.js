@@ -24,9 +24,38 @@
  * 1
  */
 
+let str = '1 3 7 9 5';
 let A = ['1','5','6','3','2']; // A 라는 배열 존재하고 이 안에 X라는 정수 존재
 
-function getArray(str) {
+function getString(str) {
+    if(str.length > 1) {
+
+        const array = str.split(' ');
+        let temp = [];
+
+        for (i = 0; i < array.length; i++){
+            for (j=0; j < A.length; j++) {
+                if( array[i] === A[j]) {
+                    temp.push(i);
+                }
+            }
+        }
+
+        let temp2 = [];
+        let count = 0;
+
+        for (i = 0; i < array.length; i++) {
+
+            if (i === temp[count]) {
+                temp2.push('1');
+                count++;
+            } else {
+                temp2.push('0');
+            }
+        }
+        
+        return temp2;
+    }
     for (i = 0; i < A.length ;i++){
         if( A[i] === str) {
             return 1;
@@ -35,5 +64,4 @@ function getArray(str) {
     return 0;
 }
 
-console.log(getArray('10'));
-console.log(getArray('5'));
+console.log(getString(str));
