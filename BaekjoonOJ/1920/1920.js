@@ -88,7 +88,6 @@ function getString(str) {
     return '0';
 }
 
-
 rl.on( 
         "line",
         line => input.push(line)
