@@ -1,4 +1,5 @@
-class HashTable {
+export default class HashTable {
+
     constructor(size=53){
       this.keyMap = new Array(size);
     }
@@ -66,23 +67,23 @@ class HashTable {
     }
 }
   
-let ht = new HashTable(17);
-ht.set("maroon","#800000")
-ht.set("yellow","#FFFF00")
-ht.set("olive","#808000")
-ht.set("salmon","#FA8072")
-ht.set("lightcoral","#F08080")
-ht.set("mediumvioletred","#C71585")
-ht.set("plum","#DDA0DD")
+// let ht = new HashTable(17);
+// ht.set("maroon","#800000")
+// ht.set("yellow","#FFFF00")
+// ht.set("olive","#808000")
+// ht.set("salmon","#FA8072")
+// ht.set("lightcoral","#F08080")
+// ht.set("mediumvioletred","#C71585")
+// ht.set("plum","#DDA0DD")
 
-console.log(ht.get("maroon"));
-console.log(ht.get("yellow"));
-console.log(ht.get("olive"));
-console.log(ht.get("salmon"));
-console.log(ht.get("lightcoral"));
-console.log(ht.get("mediumvioletred"));
-console.log(ht.get("plum"));
+// console.log(ht.get("maroon"));
+// console.log(ht.get("yellow"));
+// console.log(ht.get("olive"));
+// console.log(ht.get("salmon"));
+// console.log(ht.get("lightcoral"));
+// console.log(ht.get("mediumvioletred"));
+// console.log(ht.get("plum"));
 
-ht.keys().forEach(function(key){
-    console.log(ht.get(key));
-});
+// ht.keys().forEach(function(key){
+//     console.log(ht.get(key));
+// });
